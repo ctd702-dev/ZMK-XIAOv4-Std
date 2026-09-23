@@ -37,6 +37,18 @@
 //            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
             , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
             ;
+#include <dt-bindings/zmk/pointing.h>
+
+/ {
+    &trackball_listener {
+        layers = <0>;
+        
+        scroll_override {
+            layers = <1>; // Matches your scroll layer number
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
+    };
+};
 
     };
 };
